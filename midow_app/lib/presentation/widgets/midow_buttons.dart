@@ -8,7 +8,7 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final double? width;
   final double? height;
-  final Color? buttonBackground;
+  final Color? buttonBorder;
   final double iconTextSpacing;
   final bool isIconRight;
   final TextStyle? textStyle;
@@ -21,7 +21,7 @@ class CustomButton extends StatelessWidget {
     this.withIcon = false,
     this.width,
     this.height,
-    this.buttonBackground,
+    this.buttonBorder,
     this.iconTextSpacing = 8.0,
     this.isIconRight = false,
     this.textStyle,
@@ -43,7 +43,7 @@ class CustomButton extends StatelessWidget {
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.zero,
                 ),
-                backgroundColor: buttonBackground ?? Theme.of(context).primaryColor,
+                backgroundColor: buttonBorder ?? Theme.of(context).primaryColor,
               ),
               onPressed: onPressed,
               child: withIcon && icon != null
@@ -77,7 +77,7 @@ class CustomButton extends StatelessWidget {
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.zero,
                 ),
-                side: BorderSide(color: buttonBackground ?? Colors.white),
+                side: BorderSide(color: buttonBorder ?? Colors.white),
               ),
               onPressed: onPressed,
               child: withIcon && icon != null
