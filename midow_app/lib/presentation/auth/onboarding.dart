@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:midow_app/presentation/auth/auth.dart';
 import 'package:midow_app/presentation/widgets/midow_buttons.dart';
 
-
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 

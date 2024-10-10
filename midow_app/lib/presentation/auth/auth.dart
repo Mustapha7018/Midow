@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:midow_app/presentation/blog/home.dart';
 import 'package:midow_app/presentation/widgets/midow_buttons.dart';
 
 import '../../core/utils/midow_colors.dart';
-import '../main/hamburger_menu.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -79,7 +79,7 @@ class AuthScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const HamburgerMenu()),
+                        builder: (context) => const HomeScreen()),
                   );
                 },
               ),
