@@ -14,23 +14,7 @@ class HamburgerMenu extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);  // to be edited
-                },
-                child: const Icon(
-                  Icons.close,
-                  color: Colors.white,
-                  size: 30,
-                ),
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: Divider(color: Colors.white),
-            ),
+            const Padding(padding: EdgeInsets.only(top: 16)),
             ListTile(
               title: const Text(
                 'Profile',
