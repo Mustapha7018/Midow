@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:midow_app/core/utils/midow_colors.dart';
+// import 'package:midow_app/presentation/blog/create_blog.dart';
 import '../../core/utils/build_card.dart';
 import '../../core/utils/build_tab.dart';
 import '../../core/utils/menu_animation.dart';
-import '../main/hamburger_menu.dart'; 
+import '../main/hamburger_menu.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -74,37 +75,34 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   SizedBox(height: size.height * 0.03),
-                  const SearchBar(
-                    padding: WidgetStatePropertyAll(
+                  SearchBar(
+                    padding: const WidgetStatePropertyAll(
                       EdgeInsets.symmetric(vertical: 8, horizontal: 18),
                     ),
-                    elevation: WidgetStatePropertyAll(0),
-                    side: WidgetStatePropertyAll(
+                    elevation: const WidgetStatePropertyAll(0),
+                    side: const WidgetStatePropertyAll(
                       BorderSide(
                         color: Color.fromRGBO(226, 226, 226, 1),
                         width: 2.0,
                       ),
                     ),
-                    backgroundColor: WidgetStatePropertyAll(Colors.transparent),
-                    leading: Icon(
-                      FontAwesomeIcons.magnifyingGlass,
-                      size: 22,
-                      color: AppColors.accentColor,
-                    ),
+                    backgroundColor:
+                        const WidgetStatePropertyAll(Colors.transparent),
+                    leading: Image.asset('assets/search_icon.png'),
                     hintText: 'Find interesting news',
-                    hintStyle: WidgetStatePropertyAll(
+                    hintStyle: const WidgetStatePropertyAll(
                       TextStyle(
-                        fontSize: 19,
+                        fontSize: 18,
                         color: Color.fromRGBO(135, 135, 135, 1),
                       ),
                     ),
-                    textStyle: WidgetStatePropertyAll(
+                    textStyle: const WidgetStatePropertyAll(
                       TextStyle(
                         fontSize: 18,
                         color: AppColors.accentColor,
                       ),
                     ),
-                    shape: WidgetStatePropertyAll(
+                    shape: const WidgetStatePropertyAll(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.zero,
                       ),
@@ -126,10 +124,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       }),
                     ),
                   ),
-                  SizedBox(height: height * 0.03),
+                  SizedBox(height: height * 0.04),
 
                   // Blog Post 1
                   buildBlogCard(
+                    context,
                     'How Apple’s M3 chips make MacOS development less costly',
                     'Technology',
                     '6 min read',
@@ -139,6 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   // Blog Post 2
                   buildBlogCard(
+                    context,
                     '10 Things Doctors Say About Eating Fruits Everyday',
                     'Food & Nutrition',
                     '6 min read',
@@ -166,7 +166,10 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 65,
               child: FloatingActionButton(
                 onPressed: () {
-                  // Create action
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => const CreateBlogScreen()));
                 },
                 backgroundColor: AppColors.primaryColor,
                 shape: const CircleBorder(),

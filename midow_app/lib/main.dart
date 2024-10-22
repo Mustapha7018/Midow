@@ -14,9 +14,12 @@ class MidowApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Mulish',
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const OnboardingScreen(),
     );
   }
 }
+
+
 
