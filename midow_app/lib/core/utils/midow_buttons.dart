@@ -8,10 +8,11 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final double? width;
   final double? height;
-  final Color? buttonBorder;
+  final Color? colorFill;
   final double iconTextSpacing;
   final bool isIconRight;
   final TextStyle? textStyle;
+  final BorderRadius? borderRadius;
 
   const CustomButton({
     super.key,
@@ -21,10 +22,11 @@ class CustomButton extends StatelessWidget {
     this.withIcon = false,
     this.width,
     this.height,
-    this.buttonBorder,
+    this.colorFill,
     this.iconTextSpacing = 8.0,
     this.isIconRight = false,
     this.textStyle,
+    this.borderRadius,
     required this.onPressed,
   });
 
@@ -40,10 +42,11 @@ class CustomButton extends StatelessWidget {
       child: isFilled
           ? ElevatedButton(
               style: ElevatedButton.styleFrom(
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.zero,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: borderRadius ?? BorderRadius.zero,
                 ),
-                backgroundColor: buttonBorder ?? Theme.of(context).primaryColor,
+                backgroundColor: colorFill ?? Theme.of(context).primaryColor,
               ),
               onPressed: onPressed,
               child: withIcon && icon != null
@@ -77,7 +80,7 @@ class CustomButton extends StatelessWidget {
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.zero,
                 ),
-                side: BorderSide(color: buttonBorder ?? Colors.white),
+                side: BorderSide(color: colorFill ?? Colors.white),
               ),
               onPressed: onPressed,
               child: withIcon && icon != null

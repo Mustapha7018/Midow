@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:midow_app/core/utils/midow_colors.dart';
-// import 'package:midow_app/presentation/blog/create_blog.dart';
-import '../../core/utils/build_card.dart';
-import '../../core/utils/build_tab.dart';
-import '../../core/utils/menu_animation.dart';
-import '../main/hamburger_menu.dart';
+import 'package:midow_app/features/blog/presentation/pages/create_blog.dart';
+import '../../../../core/utils/build_card.dart';
+import '../../../../core/utils/build_tab.dart';
+import '../../../../core/utils/menu_animation.dart';
+import '../../../../core/utils/hamburger_menu.dart';
 
 class HomeScreen extends StatefulWidget {
+  static route() => MaterialPageRoute(builder: (context) => const HomeScreen());
   const HomeScreen({super.key});
 
   @override
@@ -46,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         surfaceTintColor: Colors.white,
         leading: Container(), // Remove back button
@@ -99,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     textStyle: const WidgetStatePropertyAll(
                       TextStyle(
                         fontSize: 18,
-                        color: AppColors.accentColor,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     shape: const WidgetStatePropertyAll(
@@ -166,10 +168,10 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 65,
               child: FloatingActionButton(
                 onPressed: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => const CreateBlogScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CreateBlogScreen()));
                 },
                 backgroundColor: AppColors.primaryColor,
                 shape: const CircleBorder(),

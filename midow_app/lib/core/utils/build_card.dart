@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:midow_app/core/utils/midow_colors.dart';
 
-import '../../presentation/blog/blog_detail.dart';
+import '../../features/blog/presentation/pages/blog_detail.dart';
 
 // Function to build individual blog card
 Widget buildBlogCard(BuildContext context, String title, String category, String readTime, String imagePath) {

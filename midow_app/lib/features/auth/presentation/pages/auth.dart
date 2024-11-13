@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:midow_app/presentation/blog/home.dart';
-import 'package:midow_app/presentation/widgets/midow_buttons.dart';
+import 'package:midow_app/features/blog/presentation/pages/home.dart';
+import 'package:midow_app/core/utils/midow_buttons.dart';
 
-import '../../core/utils/midow_colors.dart';
+import '../../../../core/utils/midow_colors.dart';
 
-class AuthScreen extends StatelessWidget {
+class AuthScreen extends StatefulWidget {
+  static route() => MaterialPageRoute(builder: (context) => const AuthScreen());
   const AuthScreen({super.key});
 
+  @override
+  State<AuthScreen> createState() => _AuthScreenState();
+}
+
+class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -45,6 +51,7 @@ class AuthScreen extends StatelessWidget {
                 isFilled: false,
                 isIconRight: false,
                 withIcon: true,
+                width: double.infinity,
                 icon: const Icon(
                   FontAwesomeIcons.google,
                   size: 25,
@@ -55,7 +62,7 @@ class AuthScreen extends StatelessWidget {
                   color: AppColors.primaryColor,
                   fontSize: 20,
                 ),
-                buttonBorder: AppColors.primaryColor,
+                colorFill: AppColors.primaryColor,
                 onPressed: () {},
               ),
               const SizedBox(height: 20),
@@ -64,6 +71,7 @@ class AuthScreen extends StatelessWidget {
                 isFilled: false,
                 isIconRight: false,
                 withIcon: true,
+                width: double.infinity,
                 icon: const Icon(
                   FontAwesomeIcons.solidEnvelope,
                   size: 25,
@@ -74,45 +82,66 @@ class AuthScreen extends StatelessWidget {
                   color: AppColors.primaryColor,
                   fontSize: 20,
                 ),
-                buttonBorder: AppColors.primaryColor,
+                colorFill: AppColors.primaryColor,
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const HomeScreen()),
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
                   );
                 },
               ),
               const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('Already have an account? '),
-                  GestureDetector(
-                    onTap: () {
-                      // Handle Sign In action
-                    },
-                    child: const Text(
-                      'Sign in',
+              RichText(
+                text: const TextSpan(
+                  text: 'Already have an account? ',
+                  style: TextStyle(color: AppColors.primaryColor),
+                  children: [
+                    TextSpan(
+                      text: 'Sign in',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
-                      ),
+                          fontWeight: FontWeight.w700,
+                          decoration: TextDecoration.underline),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               SizedBox(height: height * 0.1),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 50),
-                child: Text(
-                  'By signing up, you agree to our Terms of Service and '
-                  'acknowledge that our Privacy Policy applies to you',
+              Padding(
+                padding: const EdgeInsets.only(bottom: 50),
+                child: RichText(
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.black54,
-                  ),
+                  text: const TextSpan(
+                      text: 'By signing up, you agree to our ',
+                      style:
+                          TextStyle(color: AppColors.accentColor, height: 1.6),
+                      children: [
+                        TextSpan(
+                            text: 'Terms of Service',
+                            style: TextStyle(
+                                color: AppColors.primaryColor,
+                                fontWeight: FontWeight.w700,
+                                decoration: TextDecoration.underline)),
+                        TextSpan(
+                          text: ' and acknowledge that our ',
+                          style: TextStyle(
+                            color: AppColors.accentColor,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'Privacy Policy',
+                          style: TextStyle(
+                            color: AppColors.primaryColor,
+                            fontWeight: FontWeight.w700,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                        TextSpan(
+                          text: ' applies to you.',
+                          style: TextStyle(
+                            color: AppColors.accentColor,
+                          ),
+                        ),
+                      ]),
                 ),
               ),
             ],

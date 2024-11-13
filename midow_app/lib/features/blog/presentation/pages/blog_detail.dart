@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../core/utils/buid_related_posts.dart';
-import '../../core/utils/midow_colors.dart';
+import '../../../../core/utils/buid_related_posts.dart';
+import '../../../../core/utils/midow_colors.dart';
 
 class BlogDetailScreen extends StatelessWidget {
   const BlogDetailScreen({super.key});
